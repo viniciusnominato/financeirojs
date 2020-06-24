@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <title>Contas</title>
@@ -13,26 +13,17 @@
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Controle Financeiro Pessoal</a>
+        <a class="nav-link" href="#">Painel Financeiro</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="menu.html">Home</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Usuários
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Perfil</a>
-          <a class="dropdown-item" href="editar.html">Alterar Senha</a>
-          <a class="dropdown-item" href="index.html">Sair</a>
-
-          
-        </div>
+      <li class="nav-item active">
+        <a class="nav-link" href="editar.html">Gerenciar Dados</a>
       </li>
       <li class="nav-item dropdown active">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-          Gerenciar Cadastro
+          Cadastro
         </a>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="cadcategoria.html">Categorias</a>
@@ -72,8 +63,8 @@
                                 
                             </select>
                         </div>
-                        <button class="btn btn-outline-success" type="button" onclick="cadConta()">Cadastrar</button>
-                        <button class="btn btn-outline-info" type="button" onclick="atualizar()" id="atualizar" >Atualizar</button>
+                        <button class="btn btn-success" type="button" onclick="cadConta()">Cadastrar</button>
+                        <button class="btn btn-primary" type="button" onclick="atualizar()" id="atualizar" >Atualizar</button>
 
                         <br><br>
                     </div>

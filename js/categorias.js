@@ -79,19 +79,27 @@ function apagarCategoria(id){
     })
 }
 
-function editarCategoria(id){
-    for(let i = 0; i < categoria.length; i++){
-        if(categoria[i].id == id){
-          document.getElementById("id").value = categoria[i].id;
-          document.getElementById("pnome").value = categoria[i].nome;      
-      }
-      }
+function alterarcategorias(){
+    const id = document.getElementById("id").value;
+    const nome = document.getElementById("nome").value;
+    categoriasGravadas = JSON.parse(window.localStorage.getItem("categorias"));
+    let categoriasIndex = categoriasGravadas.findIndex(categoria => categoria.id == id);
+
+ if (categoriasIndex >= 0){
+     categoriasGravadas[categoriasIndex] = {id,nome};
+     window.localStorage.setItem("categorias",JSON.stringify(categoriasGravadas));
+
+
+ } 
+
 }
-function atualizar(){
+function atualizar(id){
     const nome = document.getElementById('nome').value;
 
-  
-    categoria[id] = {nome};
+    let categoriasGravadas = JSON.parse(windows.localStorage.getItem("categorias"));
+    let categoriaIndex = categoriasGravadas.findIndex(categoria => categoria.id === id);
+
+    categoriasGravadas[i] = {id,nome};
   
     Swal.fire({
       
