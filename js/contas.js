@@ -1,4 +1,5 @@
 function cadConta(){
+    const id = document.getElementById('id').value;
     const descricao = document.getElementById('descricao').value;
     const tipo = document.getElementById('tipo').value;
     const categoria = document.getElementById('categorias').value;
@@ -92,27 +93,33 @@ function ListarCatContas(){
         row.innerHTML = linhacad;
     });
 }
+
 function editarContas(id){
-    for(let i = 0; i < conta.length; i++){
-      if(conta[i].id == id){
+    let contasGravadas = JSON.parse(window.localStorage.getItem("contas"));
+    for(i = 0; i < contasGravadas.length; i++){
+        if(contasGravadas[i].id == id){
   
+          document.getElementById("id").value = contasGravadas[i].id;
+          document.getElementById("descricao").value = contasGravadas[i].descricao;
+          document.getElementById("tipo").value = contasGravadas[i].tipo;
+          document.getElementById("categorias").value = contasGravadas[i].categoria;
+  
+        }
+   }
+}
 
-        document.getElementById("descricao").value = conta[i].descricao;
-        document.getElementById("tipo").value = conta[i].tipo;
-        document.getElementById("categorias").value = conta[i].categorias;
-
-      }
-    }
-  }
   function atualizar(){
-
-
+    const id = document.getElementById('id').value;
     const descricao = document.getElementById('descricao').value;
     const tipo = document.getElementById('tipo').value;
     const categoria = document.getElementById('categorias').value;
   
-    conta[i] = {descricao, tipo, categoria};
-  
+    contasGravadas = JSON.parse(window.localStorage.getItem('contas'));
+    let contaIndex = contasGravadas.findIndex(conta => conta.id == id);
+    if(contaIndex >= 0){
+        contasGravadas[contaIndex] = {id,descricao,tipo,categoria};
+        window.localStorage.setItem('contas',JSON.stringify(contasGravadas));
+    }
     Swal.fire({
       
       icon: 'success',

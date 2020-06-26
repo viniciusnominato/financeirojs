@@ -30,7 +30,7 @@
         </div>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="lancamentos.html">Lançamentos</a>
+        <a class="nav-link" href="Lancamentos.html">Lançamentos</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" onclick="Logout()">Sair</a>
@@ -45,13 +45,16 @@
                     <div class="card">
                     <div class="card-body">
                         <h2>Cadastro de Categorias</h2>
+                        <label hidden>Id:</label>
+                        <br>
+                        <input id="id" type="text" class="form-control" hidden></input>
                         <label>Nome:</label>
                         <br>
                         <input id="nome" type="text" class="form-control"></input>
                         <br><br>
                         <button class="btn btn-success" type="button" onclick="cadCategoria()">Cadastrar</button>
 
-                        <button class="btn btn-primary" type="button" onclick="alterarcategorias()">Atualizar</button>
+                        <button class="btn btn-info" type="button" onclick="atualizar()">Atualizar</button>
 
                         <br><br>
                     </div>

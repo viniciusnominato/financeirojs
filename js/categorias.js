@@ -1,4 +1,5 @@
 function cadCategoria(){
+    const id = document.getElementById('id').value;
     const nome = document.getElementById('nome').value;
     
     if (nome == ""){
@@ -79,28 +80,27 @@ function apagarCategoria(id){
     })
 }
 
-function alterarcategorias(){
-    const id = document.getElementById("id").value;
-    const nome = document.getElementById("nome").value;
-    categoriasGravadas = JSON.parse(window.localStorage.getItem("categorias"));
-    let categoriasIndex = categoriasGravadas.findIndex(categoria => categoria.id == id);
-
- if (categoriasIndex >= 0){
-     categoriasGravadas[categoriasIndex] = {id,nome};
-     window.localStorage.setItem("categorias",JSON.stringify(categoriasGravadas));
-
-
- } 
-
-}
-function atualizar(id){
-    const nome = document.getElementById('nome').value;
-
-    let categoriasGravadas = JSON.parse(windows.localStorage.getItem("categorias"));
-    let categoriaIndex = categoriasGravadas.findIndex(categoria => categoria.id === id);
-
-    categoriasGravadas[i] = {id,nome};
+function editarCategoria(id){
+    let categoriasGravadas = JSON.parse(window.localStorage.getItem("categorias"));
+    for(i = 0; i < categoriasGravadas.length; i++){
+        if(categoriasGravadas[i].id == id){
   
+          document.getElementById("id").value = categoriasGravadas[i].id;
+          document.getElementById("nome").value = categoriasGravadas[i].nome;
+        }
+   }
+}
+
+  function atualizar(){
+    const id = document.getElementById('id').value;
+    const nome = document.getElementById('nome').value;
+  
+    categoriasGravadas = JSON.parse(window.localStorage.getItem('categorias'));
+    let categoriaIndex = categoriasGravadas.findIndex(categoria => categoria.id == id);
+    if(categoriaIndex >= 0){
+        categoriasGravadas[categoriaIndex] = {id,nome};
+        window.localStorage.setItem('categorias',JSON.stringify(categoriasGravadas));
+    }
     Swal.fire({
       
       icon: 'success',
@@ -111,6 +111,7 @@ function atualizar(id){
     listarCategorias();
     Limpar()
   }
+
 
 
 function Limpar(){
